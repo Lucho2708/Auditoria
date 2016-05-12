@@ -140,10 +140,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Auditoria\Providers\AppServiceProvider::class,
+        Auditoria\Providers\AuthServiceProvider::class,
+        Auditoria\Providers\EventServiceProvider::class,
+        Auditoria\Providers\RouteServiceProvider::class,
 
     ],
 

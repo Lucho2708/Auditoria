@@ -1,3 +1,5 @@
+@extends('index')
+
 <!DOCTYPE html>
 <html>
     <head>

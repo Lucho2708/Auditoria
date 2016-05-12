@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Auditoria\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

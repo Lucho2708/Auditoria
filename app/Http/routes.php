@@ -11,6 +11,42 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[
+    'uses' => 'HomeController@index',
+    'as'=>'home'
+
+    ]);
+
+// Authentication routes...
+Route::get('login', [
+
+    'uses'=>'Auth\AuthController@getLogin',
+    'as'=>'login'
+
+]);
+Route::post('login', [
+    'uses'=>'Auth\AuthController@postLogin',
+    'as'=>'login'
+]);
+Route::get('logout', [
+    'uses'=>'Auth\AuthController@getLogout',
+    'as'=>'logout'
+]);
+
+// Registration routes...
+Route::get('register', [
+    'uses'=>'Auth\AuthController@getRegister',
+    'as'=>'register'
+]);
+Route::post('register', [
+    'uses'=>'Auth\AuthController@postRegister',
+    'as'=>'register'
+]);
+
+// Password reset link request routes...
+Route::get('email', 'Auth\PasswordController@getEmail');
+Route::post('email', 'Auth\PasswordController@postEmail');
+
+// Password reset routes...
+Route::get('reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('reset', 'Auth\PasswordController@postReset');
