@@ -47,6 +47,7 @@
                             <li><a href="{{route('logout')}}">Logout</a></li>
                         </ul>
                     </li>
+
                 @endif
             </ul>
         </div>
