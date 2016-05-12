@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
             <!-- Fonts -->
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,17 +53,38 @@
                         </ul>
                     </li>
 
-                @endif
+
+
             </ul>
+
         </div>
+
     </div>
+
+@yield('panel')
+
+    @endif
+    <!-- /#sidebar-wrapper -->
 </nav>
 
 @yield('content')
 
+
+
         <!-- Scripts -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 @yield('scripts')
 </body>
 </html>
