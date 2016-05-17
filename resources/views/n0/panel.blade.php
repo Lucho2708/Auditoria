@@ -1,7 +1,6 @@
 @extends('index')
 
 @section('panel')
-
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -28,5 +27,7 @@
         </div>
 
     </div>
+
+
 
 @endsection

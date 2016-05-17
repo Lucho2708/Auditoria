@@ -16,6 +16,11 @@ Route::get('/',[
     'as'=>'home'
 
     ]);
+Route::get('crear',[
+    'uses' => 'HomeController@crearr',
+    'as'=>'home'
+
+]);
 
 // Authentication routes...
 Route::get('login', [
