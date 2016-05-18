@@ -25,7 +25,6 @@
                 </li>
             </ul>
         </div>
-        @yield('contenido0')
 
     </div>
 
