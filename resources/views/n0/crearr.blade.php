@@ -3,10 +3,35 @@
 @section('contenido0')
 
     <div class="col-lg-12">
-        <h1>Hola Mundo Voy a Perder Simulacion</h1>
-        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+
+            <h1 align="center">REGISTRAR xxxxx</h1>
+
+        <form role="form" method="post" action="#">
+            <fieldset>
+
+                <div class="form-group">
+                    <input class="form-control" placeholder=" No. Documento De Identidad" name="documento" type="text" autofocus>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Nombres" name="nombre" type="text" autofocus>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Apellidos" name="apellido" type="text" autofocus>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Usuario" name="usuario" type="text" autofocus>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Contraseña" name="pass1" type="password" value="">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Confirmar Contraseña" name="pass2" type="password" value="">
+                </div>
+
+
+                <input class="btn btn-lg btn-success btn-block" type="submit" value="REGISTRAR" name="register" >
+            </fieldset>
+        </form>
     </div>
 
 
