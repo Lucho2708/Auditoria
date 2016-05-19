@@ -4,88 +4,142 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
 
 
+    <title>Soft - Auditor</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-            <!-- Fonts -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    {!! Html::style('../bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+
+    <!-- MetisMenu CSS -->
+    {!! Html::style('../bower_components/metisMenu/dist/metisMenu.min.css')!!}
+
+
+
+<!-- Timeline CSS -->
+    {!! Html::style('../css/timeline.css')!!}
+
+
+<!-- Custom CSS -->
+    {!! Html::style('../dist/css/sb-admin-2.css')!!}
+
+
+
+<!-- Morris Charts CSS -->
+    {!! Html::style('../bower_components/morrisjs/morris.css')!!}
+
+
+
+<!-- Custom Fonts -->
+    {!! Html::style('../bower_components/font-awesome/css/font-awesome.min.css')!!}
+
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+
+    {!! Html::script('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') !!}
+
+    {!! Html::script('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') !!}
+
+<![endif]-->
+
 </head>
 <body>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Auditoria</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                @if (Auth::guest())
-                    <li><a href="{{route('login')}}">Login</a></li>
-                    <li><a href="{{route('register')}}">Register</a></li>
-                @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{route('logout')}}">Logout</a></li>
-                        </ul>
-                    </li>
-
-
-
-            </ul>
-
-        </div>
-
+<div id="wrapper">
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">FunApp</a>
     </div>
+    <!-- /.navbar-header -->
 
-@yield('panel')
+    <ul class="nav navbar-top-links navbar-right">
 
+
+        <!-- /.dropdown -->
+
+
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+
+
+            <ul class="dropdown-menu dropdown-user">
+                @if (Auth::guest())
+                    <li><a href="{{route('login')}}"><i class="fa fa-user fa-fw"></i>Iniciar Sesión</a></li>
+                @else
+                    <li><a href=""><i class="fa fa-user fa-fw"></i>Perfil</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i>Configuración</a>
+                    </li>
+                    <li><a href="#"><i class="fa  fa-life-saver fa-fw"></i>Ayuda</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="{{route('logout')}}"><i class="fa fa-sign-out fa-fw"></i>Salir</a>
+                    </li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+    </ul>
+    <!-- /.navbar-top-links -->
+
+    <div class="navbar-default sidebar" role="navigation">
+        @yield('panel')
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
     @endif
-    <!-- /#sidebar-wrapper -->
 </nav>
+
+</div>
 
 @yield('content')
 
 
+    <!-- jQuery -->
+{!! Html::script('../bower_components/jquery/dist/jquery.min.js') !!}
 
-        <!-- Scripts -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-<script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
+{!! Html::script('../bower_components/bootstrap/dist/js/bootstrap.min.js') !!}
+
+
+<!-- Metis Menu Plugin JavaScript -->
+{!! Html::script('../bower_components/metisMenu/dist/metisMenu.min.js') !!}
+
+
+<!-- Flot Charts JavaScript -->
+{!! Html::script('../bower_components/flot/excanvas.min.js') !!}
+
+{!! Html::script('../bower_components/flot/jquery.flot.js') !!}
+
+{!! Html::script('../bower_components/flot/jquery.flot.pie.js') !!}
+
+{!! Html::script('../bower_components/flot/jquery.flot.resize.js') !!}
+
+{!! Html::script('../bower_components/flot/jquery.flot.time.js') !!}
+
+{!! Html::script('../bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js') !!}
+
+{!! Html::script('../js/flot-data.js') !!}
+
+
+
+<!-- Custom Theme JavaScript -->
+{!! Html::script('../dist/js/sb-admin-2.js') !!}
+
 @yield('scripts')
 </body>
 </html>

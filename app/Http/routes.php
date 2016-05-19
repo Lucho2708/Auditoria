@@ -16,11 +16,12 @@ Route::get('/',[
     'as'=>'home'
 
     ]);
-Route::get('crear',[
-    'uses' => 'HomeController@crearr',
-    'as'=>'home'
+Route::group(['prefix' => 'auditor'], function () {
+    
+   Route::resource('users','UsersController');
+    
+});
 
-]);
 
 // Authentication routes...
 Route::get('login', [

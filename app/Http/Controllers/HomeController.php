@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auditoria\Http\Requests;
 use Auditoria\Http\Controllers\Controller;
 
+
 class HomeController extends Controller
 {
     /**
@@ -18,9 +19,6 @@ class HomeController extends Controller
     {
         return view('n0.panel');
     }
-    public function crearr()
-    {
-        return view('n0.crearr');
-    }
+     
 
 }

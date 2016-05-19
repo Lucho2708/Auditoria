@@ -1,33 +1,46 @@
 @extends('index')
 
 @section('panel')
-    <div id="wrapper">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                </div>
+                <!-- /input-group -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard Soft Auditor</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pencil fa-fw"></i>Facturas</a>
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Auditor
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Consultas</a>
-                </li>
-                <li>
-                    <a href="#">Registros</a>
-                </li>
-                <li>
-                    <a href="#">Log Historico</a>
-                </li>
-                <li>
-                    <a href="#">Crear Usuarios</a>
-                </li>
-            </ul>
-        </div>
+                <!-- /.nav-second-level -->
+            </li>
 
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="panels-wells.html">Crear Usuarios</a>
+                    </li>
+                    <li>
+                        <a href="typography.html">Modificar Usuarios</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-gear fa-fw"></i>Logs Historicos</a>
+            </li>
+
+        </ul>
     </div>
-
 
 
 @endsection
