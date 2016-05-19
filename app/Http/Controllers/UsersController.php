@@ -19,7 +19,7 @@ class UsersController extends Controller
     {
         $users =User::all();
 
-        return view('n0.index');
+        return view('n0.index',compact('users'));
     }
     
 

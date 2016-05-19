@@ -18,6 +18,14 @@
     {!! Html::style('../bower_components/metisMenu/dist/metisMenu.min.css')!!}
 
 
+            <!-- DataTables CSS -->
+    {!! Html::style('../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css')!!}
+
+
+    <!-- DataTables Responsive CSS -->
+    {!! Html::style('../bower_components/datatables-responsive/css/dataTables.responsive.css')!!}
+
+
 
 <!-- Timeline CSS -->
     {!! Html::style('../css/timeline.css')!!}
@@ -120,6 +128,13 @@
 {!! Html::script('../bower_components/metisMenu/dist/metisMenu.min.js') !!}
 
 
+{!! Html::script('../bower_components/datatables/media/js/jquery.dataTables.min.js') !!}
+
+{!! Html::script('../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') !!}
+
+
+
+
 <!-- Flot Charts JavaScript -->
 {!! Html::script('../bower_components/flot/excanvas.min.js') !!}
 
@@ -139,6 +154,8 @@
 
 <!-- Custom Theme JavaScript -->
 {!! Html::script('../dist/js/sb-admin-2.js') !!}
+
+
 
 @yield('scripts')
 </body>
