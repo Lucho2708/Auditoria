@@ -9,6 +9,7 @@ use Auditoria\Http\Controllers\Controller;
 use Auditoria\User;
 use Session;
 use Redirect;
+use Auditoria\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
@@ -41,7 +42,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $user = new User ($request->all());
         $user -> password=bcrypt($request->password);

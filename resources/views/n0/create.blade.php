@@ -6,8 +6,25 @@
             <div class="col-lg-12">
                 <h1 class="page-header">Crear Usuario</h1>
             </div>
+            <div class="col-lg-12">
+                @if(count($errors)>0)
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <ul>
+                            @foreach($errors->all() as $error)
+                            <li>
+                                {{$error}}
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                @endif
+            </div>
             <!-- /.col-lg-12 -->
         </div>
+
+
 
 
         {!! Form::open(['route' => 'auditor.users.store', 'method' => 'POST']) !!}
