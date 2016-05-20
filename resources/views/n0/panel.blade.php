@@ -24,13 +24,13 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-wrench fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
+                <a href=""><i class="fa fa-user fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="panels-wells.html">Crear Usuarios</a>
+                        <a href="{{route('auditor.users.index')}}">Listar Usuarios</a>
                     </li>
                     <li>
-                        <a href="typography.html">Modificar Usuarios</a>
+                        <a href="{{route('auditor.users.create')}}">Crear Usuarios</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

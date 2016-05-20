@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Auditoria\Http\Requests;
 use Auditoria\Http\Controllers\Controller;
 use Auditoria\User;
+use Session;
+use Redirect;
 
 class UsersController extends Controller
 {
@@ -30,7 +32,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('n0.create');
     }
 
     /**
@@ -41,7 +43,12 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User ($request->all());
+        $user -> password=bcrypt($request->password);
+        $user ->role=($request->role);
+        $user->save();
+        Session::flash('message','Usuario creado correctamente');
+        return redirect::to('auditor/users');
     }
 
     /**
