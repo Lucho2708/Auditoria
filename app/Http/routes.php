@@ -18,7 +18,10 @@ Route::get('/',[
     ]);
 Route::group(['prefix' => 'auditor'], function () {
     
-   Route::resource('users','UsersController');
+    Route::resource('users','UsersController');
+    Route::resource('recibo','ReciboController');
+    
+
     
 });
 
@@ -26,6 +29,9 @@ Route::get('users/{id}/destroy',[
     'uses' => 'UsersController@destroy',
     'as'=>'auditor.users.destroy'
 ]);
+
+
+
 
 
 // Authentication routes...
