@@ -39,8 +39,8 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->role}}</td>
                                     <td>
-                                        <a class="btn btn-success" href="#" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                        <a class="btn btn-danger" href="#" role="button"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        <a class="btn btn-success" href="{{route('auditor.users.edit', $user->id)}}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        <a class="btn btn-danger" href="{{route('auditor.users.destroy',$user->id)}}" onclick="return confirm('Quiere borrar el resgitro de {{$user->name}}  ?') " , role="button"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </td>
                             </tr>
                         @endforeach

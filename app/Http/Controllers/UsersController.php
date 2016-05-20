@@ -71,7 +71,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::find($id);
+        return view('n0.edit', compact('user'));
     }
 
     /**
@@ -83,7 +84,13 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=User::find($id);
+        $user->fill($request->all());
+        $user->role=($request->role);
+        $user->save();
+        Session::flash('message','Usuario actualizado correctamente');
+        return redirect::to('auditor/users');
+
     }
 
     /**
@@ -94,6 +101,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::find($id);
+        $user->delete();
+        Session::flash('message','Usuario eliminado correctamente');
+        return redirect::to('auditor/users');
     }
 }

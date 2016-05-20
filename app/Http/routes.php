@@ -22,6 +22,11 @@ Route::group(['prefix' => 'auditor'], function () {
     
 });
 
+Route::get('users/{id}/destroy',[
+    'uses' => 'UsersController@destroy',
+    'as'=>'auditor.users.destroy'
+]);
+
 
 // Authentication routes...
 Route::get('login', [
