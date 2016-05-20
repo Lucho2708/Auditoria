@@ -31,7 +31,7 @@ class ReciboController extends Controller
      */
     public function create()
     {
-        //
+        return view('n0.recibo.create');
     }
 
     /**
@@ -42,7 +42,12 @@ class ReciboController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $recibos = new Recibo ($request->all());
+        
+        $recibos->save();
+        Session::flash('message','Usuario creado correctamente');
+        return redirect::to('auditor/recibo');
     }
 
     /**

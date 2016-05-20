@@ -29,24 +29,22 @@
 
         {!! Form::open(['route' => 'auditor.recibo.store', 'method' => 'POST']) !!}
         <div class="form-group">
-            {!! Form::label('name','Nombre') !!}
-            {!! Form::text('name',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+            {!! Form::label('cod','Nombre') !!}
+            {!! Form::text('cod',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('fac','Nombre') !!}
+            {!! Form::text('fac',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('val','Nombre') !!}
+            {!! Form::text('val',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('desc','Nombre') !!}
+            {!! Form::text('desc',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
         </div>
 
-        <div class="form-group">
-            {!! Form::label('email','Correo electrónico') !!}
-            {!! Form::email('email',null,['class' =>'form-control', 'placeholder' =>'example@gmail.com','required'])!!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('password','Contraseña') !!}
-            {!! Form::password('password',['class' =>'form-control', 'placeholder' =>'','required'])!!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('role','Tipo de usuario') !!}
-            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario'  ,'member' => 'Miembro','admin'=>'Administrador'], null, ['class'=>'form-control']) !!}
-        </div>
 
         <div class="form-group">
             {!! Form::submit('Registrar', ['class' =>'btn btn-primary']) !!}

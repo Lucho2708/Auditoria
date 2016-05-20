@@ -14,8 +14,8 @@ class CreateRecibosTable extends Migration
     {
         Schema::create('recibos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cod');
-            $table->integer('fac');
+            $table->integer('cod')->unique();
+            $table->integer('fac')->unique();
             $table->string('val');
             $table->string('desc');
             $table->integer('id_user');
