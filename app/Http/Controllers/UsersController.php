@@ -24,7 +24,7 @@ class UsersController extends Controller
       
 
 
-            return view('n0.index',compact('users'));
+            return view('admin.index',compact('users'));
       
 
     }
@@ -37,7 +37,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('n0.create');
+        return view('admin.create');
     }
 
     /**
@@ -76,7 +76,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user=User::find($id);
-        return view('n0.edit', compact('user'));
+        return view('admin.edit', compact('user'));
     }
 
     /**

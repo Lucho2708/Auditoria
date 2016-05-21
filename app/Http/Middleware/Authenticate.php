@@ -43,13 +43,11 @@ class Authenticate
                 return redirect::to('login');
             }
         }
-
-
+        
         if ($request->user()->role != $role){
             return abort(403, 'Usuario No autorizado');
         }
-
-
+    
         return $next($request);
     }
 }

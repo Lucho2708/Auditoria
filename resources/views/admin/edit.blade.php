@@ -1,4 +1,5 @@
-@extends('edit.panel')
+@extends('admin.panel')
+
 @section('content')
     <div id="page-wrapper">
         <div class="row">
@@ -26,7 +27,7 @@
 
 
 
-        {!! Form::open(['route' => ['edit.users.update',$user], 'method' => 'PUT']) !!}
+        {!! Form::open(['route' => ['admin.users.update',$user], 'method' => 'PUT']) !!}
         <div class="form-group">
             {!! Form::label('name','Nombre') !!}
             {!! Form::text('name',$user->name,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
@@ -39,7 +40,7 @@
 
         <div class="form-group">
             {!! Form::label('role','Tipo de usuario') !!}
-            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','member' => 'Miembro','edit'=>'Editor'], $user->role, ['class'=>'form-control']) !!}
+            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','invited' => 'Invitado','member' => 'Miembro','edit'=>'Editor'  ,'admin'=>'Administrador'], $user->role, ['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">

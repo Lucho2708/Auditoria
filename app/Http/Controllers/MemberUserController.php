@@ -20,7 +20,8 @@ class MemberUserController extends Controller
     public function index()
     {
         $users =User::all();
-        return view('n3.index',compact('users'));
+        
+        return view('member.index',compact('users'));
     }
 
     /**
@@ -30,7 +31,7 @@ class MemberUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('member.create');
     }
 
     /**
@@ -41,7 +42,12 @@ class MemberUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User ($request->all());
+        $user -> password=bcrypt($request->password);
+        $user ->role=($request->role);
+        $user->save();
+        Session::flash('message','Usuario creado correctamente');
+        return redirect::to('member/users');
     }
 
     /**

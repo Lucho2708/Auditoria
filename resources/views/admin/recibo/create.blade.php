@@ -1,4 +1,4 @@
-@extends('n0.panel')
+@extends('admin.panel')
 
 @section('content')
     <div id="page-wrapper">

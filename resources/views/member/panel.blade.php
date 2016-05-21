@@ -32,6 +32,10 @@
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="{{route('member.users.index')}}">Listar Usuarios</a>
+
+                    </li>
+                    <li>
+                        <a href="{{route('member.users.create')}}">Crear Usuarios</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

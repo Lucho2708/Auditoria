@@ -14,10 +14,11 @@
 use \Auditoria\Http\Middleware\IsAuditor;
 
 Route::get('/',[
+    'middleware'=>'guest',
     'uses' => 'HomeController@index',
     'as'=>'home'
 
-    ]);
+]);
 
 Route::group(['middleware'=>'auth:admin','prefix' => 'admin'], function () {
 
@@ -35,7 +36,7 @@ Route::get('users/{id}/destroy',[
 
 
 Route::get('recibo/{id}/destroy',[
-    
+
     'middleware'=>'auth:admin',
     'uses' => 'ReciboController@destroy',
     'as'=>'admin.recibo.destroy'

@@ -1,4 +1,4 @@
-@extends('n3.panel')
+@extends('member.panel')
 
 @section('content')
     <div id="page-wrapper">
@@ -29,7 +29,6 @@
                             <th>Factura</th>
                             <th>Valor</th>
                             <th>Descripcion</th>
-                            <th>Accionesr</th>
 
                         </tr>
                         </thead>

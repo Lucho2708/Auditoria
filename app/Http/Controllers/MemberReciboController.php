@@ -22,7 +22,7 @@ class MemberReciboController extends Controller
     {
         $recibos =Recibo::all();
 
-        return view('n3.recibo.index',compact('recibos'));
+        return view('member.recibo.index',compact('recibos'));
     }
 
     /**

@@ -20,8 +20,9 @@ class EditUserController extends Controller
      */
     public function index()
     {
+        $users =User::all();
 
-        return view('edit.create');
+        return view('edit.index',compact('users'));
     }
 
     /**

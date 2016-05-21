@@ -1,4 +1,4 @@
-@extends('n3.panel')
+@extends('member.panel')
 
 @section('content')
     <div id="page-wrapper">
@@ -27,7 +27,6 @@
                             <th>Nombres</th>
                             <th>E-mail</th>
                             <th>Tipo</th>
-                            <th>Accion</th>
 
                         </tr>
                         </thead>

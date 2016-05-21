@@ -1,10 +1,10 @@
-@extends('n0.panel')
+@extends('admin.panel')
 
 @section('content')
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Editar Usuario</h1>
+                <h1 class="page-header">Crear Usuario</h1>
             </div>
             <div class="col-lg-12">
                 @if(count($errors)>0)
@@ -12,9 +12,9 @@
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <ul>
                             @foreach($errors->all() as $error)
-                                <li>
-                                    {{$error}}
-                                </li>
+                            <li>
+                                {{$error}}
+                            </li>
                             @endforeach
                         </ul>
                     </div>
@@ -27,24 +27,29 @@
 
 
 
-        {!! Form::open(['route' => ['admin.users.update',$user], 'method' => 'PUT']) !!}
+        {!! Form::open(['route' => 'admin.users.store', 'method' => 'POST']) !!}
         <div class="form-group">
             {!! Form::label('name','Nombre') !!}
-            {!! Form::text('name',$user->name,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+            {!! Form::text('name',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
         </div>
 
         <div class="form-group">
             {!! Form::label('email','Correo electrónico') !!}
-            {!! Form::email('email',$user->email,['class' =>'form-control', 'placeholder' =>'example@gmail.com','required'])!!}
+            {!! Form::email('email',null,['class' =>'form-control', 'placeholder' =>'example@gmail.com','required'])!!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('password','Contraseña') !!}
+            {!! Form::password('password',['class' =>'form-control', 'placeholder' =>'','required'])!!}
         </div>
 
         <div class="form-group">
             {!! Form::label('role','Tipo de usuario') !!}
-            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','invited' => 'Invitado','member' => 'Miembro','edit'=>'Editor'  ,'admin'=>'Administrador'], $user->role, ['class'=>'form-control']) !!}
+            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','invited' => 'Auditor','auditor' => 'Miembro','edit'=>'Editor'  ,'admin'=>'Administrador'],null, ['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::submit('Actualizar', ['class' =>'btn btn-primary']) !!}
+            {!! Form::submit('Registrar', ['class' =>'btn btn-primary']) !!}
 
         </div>
 

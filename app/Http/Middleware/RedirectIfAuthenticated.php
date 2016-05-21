@@ -35,7 +35,23 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            return redirect('/');
+
+            if ($request->user()->role == 'edit'){
+
+                return redirect('/edit/users');
+            }
+            if ($request->user()->role == 'admin'){
+
+                return redirect('/admin/users');
+            }
+            if ($request->user()->role == 'member'){
+
+                return redirect('/member/users');
+            }
+            if ($request->user()->role == 'edit'){
+
+                return redirect('/edit/users');
+            }
         }
 
         return $next($request);

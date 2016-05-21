@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Auditoria\Http\Requests;
 use Auditoria\Http\Controllers\Controller;
+use Auditoria\User;
+use Redirect;
 
 
 class HomeController extends Controller
@@ -17,7 +19,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('n0.panel');
+       return view('auth.login');
     }
      
 
