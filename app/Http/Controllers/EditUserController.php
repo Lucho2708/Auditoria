@@ -20,8 +20,8 @@ class EditUserController extends Controller
      */
     public function index()
     {
-        $users =User::all();
-        return view('n2.index',compact('users'));
+
+        return view('edit.create');
     }
 
     /**
@@ -31,7 +31,7 @@ class EditUserController extends Controller
      */
     public function create()
     {
-        return view('n2.create');
+        return view('edit.create');
     }
 
     /**
@@ -70,7 +70,7 @@ class EditUserController extends Controller
     public function edit($id)
     {
         $user=User::find($id);
-        return view('n2.edit', compact('user'));
+        return view('edit.edit', compact('user'));
     }
 
     /**

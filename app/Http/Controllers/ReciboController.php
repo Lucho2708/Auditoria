@@ -48,7 +48,7 @@ class ReciboController extends Controller
 
         $recibo->save();
         Session::flash('message','Recibo creado correctamente');
-        return redirect::to('auditor/recibo');
+        return redirect::to('admin/recibo');
     }
 
     /**
@@ -81,7 +81,7 @@ class ReciboController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ReciboRequest $request, $id)
+    public function update(Request $request, $id)
     {
         
         $recibo=Recibo::find($id);
@@ -90,7 +90,7 @@ class ReciboController extends Controller
         
         $recibo->save();
         Session::flash('message','Recibo actualizado correctamente');
-        return redirect::to('auditor/recibo');
+        return redirect::to('admin/recibo');
     }
 
     /**
@@ -101,10 +101,10 @@ class ReciboController extends Controller
      */
     public function destroy($id)
     {
-        $recibo=Recibo::find($id);
 
+        $recibo=Recibo::find($id);
         $recibo->delete();
         Session::flash('message','Recibo eliminado correctamente');
-        return redirect::to('auditor/recibo');
+        return redirect::to('admin/recibo');
     }
 }

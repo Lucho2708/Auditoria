@@ -1,10 +1,10 @@
-@extends('n0.panel')
+@extends('edit.panel')
 
 @section('content')
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Editar Usuario</h1>
+                <h1 class="page-header">Editar Recibo</h1>
             </div>
             <div class="col-lg-12">
                 @if(count($errors)>0)
@@ -26,22 +26,24 @@
 
 
 
-
-        {!! Form::open(['route' => ['edit.users.update',$user], 'method' => 'PUT']) !!}
+        {!! Form::open(['route' =>[ 'admin.recibo.update',$recibo], 'method' => 'PUT']) !!}
         <div class="form-group">
-            {!! Form::label('name','Nombre') !!}
-            {!! Form::text('name',$user->name,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+            {!! Form::label('cod','Nombre') !!}
+            {!! Form::text('cod',$recibo->cod,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('fac','Nombre') !!}
+            {!! Form::text('fac',$recibo->fac,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('val','Nombre') !!}
+            {!! Form::text('val',$recibo->val,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('desc','Nombre') !!}
+            {!! Form::text('desc',$recibo->desc,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
         </div>
 
-        <div class="form-group">
-            {!! Form::label('email','Correo electrónico') !!}
-            {!! Form::email('email',$user->email,['class' =>'form-control', 'placeholder' =>'example@gmail.com','required'])!!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('role','Tipo de usuario') !!}
-            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','invited' => 'Invitado','member' => 'Miembro','edit'=>'Editor'], $user->role, ['class'=>'form-control']) !!}
-        </div>
 
         <div class="form-group">
             {!! Form::submit('Actualizar', ['class' =>'btn btn-primary']) !!}
@@ -50,6 +52,5 @@
 
 
         {!! Form::close() !!}
-
     </div>
 @endsection

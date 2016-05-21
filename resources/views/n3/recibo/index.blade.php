@@ -1,4 +1,4 @@
-@extends('n0.panel')
+@extends('n3.panel')
 
 @section('content')
     <div id="page-wrapper">
@@ -42,9 +42,7 @@
                                     <td>{{$recibo->fac}}</td>
                                     <td>{{$recibo->val}}</td>
                                     <td>{{$recibo->desc}}</td>
-                                    <td>
-                                        <a class="btn btn-success" href="{{route('edit.recibo.edit', $recibo->id)}}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                    </td>
+
                             </tr>
                         @endforeach
 

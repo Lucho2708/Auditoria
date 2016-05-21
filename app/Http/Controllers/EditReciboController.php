@@ -22,7 +22,7 @@ class EditReciboController extends Controller
     {
         $recibos =Recibo::all();
 
-        return view('n2.recibo.index',compact('recibos'));
+        return view('edit.recibo.index',compact('recibos'));
     }
 
     /**
@@ -32,7 +32,7 @@ class EditReciboController extends Controller
      */
     public function create()
     {
-        return view('n2.recibo.create');
+        return view('edit.recibo.create');
     }
 
     /**
@@ -70,7 +70,7 @@ class EditReciboController extends Controller
     public function edit($id)
     {
         $recibo=Recibo::find($id);
-        return view('n2.recibo.edit', compact('recibo'));
+        return view('edit.recibo.edit', compact('recibo'));
     }
 
     /**

@@ -1,5 +1,5 @@
-@extends('n0.panel')
 
+@extends('edit.panel')
 @section('content')
     <div id="page-wrapper">
         <div class="row">

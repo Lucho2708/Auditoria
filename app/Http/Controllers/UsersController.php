@@ -53,7 +53,7 @@ class UsersController extends Controller
         $user ->role=($request->role);
         $user->save();
         Session::flash('message','Usuario creado correctamente');
-        return redirect::to('auditor/users');
+        return redirect::to('admin/users');
     }
 
     /**
@@ -93,7 +93,7 @@ class UsersController extends Controller
         $user->role=($request->role);
         $user->save();
         Session::flash('message','Usuario actualizado correctamente');
-        return redirect::to('auditor/users');
+        return redirect::to('admin/users');
 
     }
 
@@ -108,6 +108,6 @@ class UsersController extends Controller
         $user=User::find($id);
         $user->delete();
         Session::flash('message','Usuario eliminado correctamente');
-        return redirect::to('auditor/users');
+        return redirect::to('admin/users');
     }
 }

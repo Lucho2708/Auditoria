@@ -27,14 +27,18 @@ Route::group(['middleware'=>'auth:admin','prefix' => 'admin'], function () {
 });
 
 Route::get('users/{id}/destroy',[
+    
+    'middleware'=>'auth:admin',
     'uses' => 'UsersController@destroy',
-    'as'=>'auditor.users.destroy'
+    'as'=>'admin.users.destroy'
 ]);
 
 
 Route::get('recibo/{id}/destroy',[
+    
+    'middleware'=>'auth:admin',
     'uses' => 'ReciboController@destroy',
-    'as'=>'auditor.recibo.destroy'
+    'as'=>'admin.recibo.destroy'
 ]);
 
 Route::group(['middleware'=>'auth:edit','prefix' => 'edit'], function () {
@@ -51,6 +55,10 @@ Route::group(['middleware'=>'auth:member','prefix' => 'member'], function () {
     Route::resource('recibo','MemberReciboController');
 
 });
+
+
+
+
 
 
 // Authentication routes...

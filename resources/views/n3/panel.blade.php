@@ -22,10 +22,7 @@
 
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{route('edit.recibo.index')}}">Listar Recibos</a>
-                    </li>
-                    <li>
-                        <a href="{{route('edit.recibo.create')}}">Crear Recibo</a>
+                        <a href="{{route('member.recibo.index')}}">Listar Recibos</a>
                     </li>
                 </ul>
             </li>
@@ -34,10 +31,7 @@
                 <a href=""><i class="fa fa-user fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{route('edit.users.index')}}">Listar Usuarios</a>
-                    </li>
-                    <li>
-                        <a href="{{route('edit.users.create')}}">Crear Usuario</a>
+                        <a href="{{route('member.users.index')}}">Listar Usuarios</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

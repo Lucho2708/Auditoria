@@ -1,4 +1,4 @@
-@extends('n0.panel')
+@extends('n3.panel')
 
 @section('content')
     <div id="page-wrapper">
@@ -38,9 +38,7 @@
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->role}}</td>
-                                    <td>
-                                        <a class="btn btn-success" href="{{route('edit.users.edit', $user->id)}}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                    </td>
+
                             </tr>
                         @endforeach
 
