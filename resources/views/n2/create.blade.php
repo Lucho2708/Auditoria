@@ -27,7 +27,7 @@
 
 
 
-        {!! Form::open(['route' => 'admin.users.store', 'method' => 'POST']) !!}
+        {!! Form::open(['route' => 'edit.users.store', 'method' => 'POST']) !!}
         <div class="form-group">
             {!! Form::label('name','Nombre') !!}
             {!! Form::text('name',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
@@ -45,7 +45,7 @@
 
         <div class="form-group"
             {!! Form::label('role','Tipo de usuario') !!}
-            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','invited' => 'Invitado','member' => 'Miembro','edit'=>'Editor'  ,'admin'=>'Administrador'],null, ['class'=>'form-control']) !!}
+            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','invited' => 'Invitado','member' => 'Miembro','edit'=>'Editor'],null, ['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">

@@ -4,6 +4,7 @@ namespace Auditoria\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Redirect;
 
 class Authenticate
 {
@@ -32,15 +33,22 @@ class Authenticate
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $role)
     {
+
         if ($this->auth->guest()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('auth/login');
+                return redirect::to('login');
             }
         }
+
+
+        if ($request->user()->role != $role){
+            return abort(403, 'Usuario No autorizado');
+        }
+
 
         return $next($request);
     }

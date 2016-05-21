@@ -11,17 +11,18 @@
 |
 */
 
+use \Auditoria\Http\Middleware\IsAuditor;
+
 Route::get('/',[
     'uses' => 'HomeController@index',
     'as'=>'home'
 
     ]);
-Route::group(['prefix' => 'auditor'], function () {
-    
+
+Route::group(['middleware'=>'auth:admin','prefix' => 'admin'], function () {
+
     Route::resource('users','UsersController');
     Route::resource('recibo','ReciboController');
-    
-
     
 });
 
@@ -36,7 +37,20 @@ Route::get('recibo/{id}/destroy',[
     'as'=>'auditor.recibo.destroy'
 ]);
 
+Route::group(['middleware'=>'auth:edit','prefix' => 'edit'], function () {
 
+    Route::resource('users','EditUserController');
+    Route::resource('recibo','EditReciboController');
+
+});
+
+
+Route::group(['middleware'=>'auth:member','prefix' => 'member'], function () {
+
+    Route::resource('users','MemberUserController');
+    Route::resource('recibo','MemberReciboController');
+
+});
 
 
 // Authentication routes...

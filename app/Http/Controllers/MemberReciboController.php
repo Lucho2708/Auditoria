@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 use Auditoria\Http\Requests;
 use Auditoria\Http\Controllers\Controller;
-use Auditoria\User;
+use Auditoria\Recibo;
 use Session;
 use Redirect;
-use Auditoria\Http\Requests\UserRequest;
+use Auditoria\Http\Requests\ReciboRequest;
 
-class UsersController extends Controller
+class MemberReciboController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,15 +20,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users =User::all();
-      
+        $recibos =Recibo::all();
 
-
-            return view('n0.index',compact('users'));
-      
-
+        return view('n3.recibo.index',compact('recibos'));
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -37,7 +32,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('n0.create');
+        //
     }
 
     /**
@@ -46,14 +41,9 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-        $user = new User ($request->all());
-        $user -> password=bcrypt($request->password);
-        $user ->role=($request->role);
-        $user->save();
-        Session::flash('message','Usuario creado correctamente');
-        return redirect::to('auditor/users');
+        //
     }
 
     /**
@@ -75,8 +65,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user=User::find($id);
-        return view('n0.edit', compact('user'));
+        //
     }
 
     /**
@@ -88,13 +77,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user=User::find($id);
-        $user->fill($request->all());
-        $user->role=($request->role);
-        $user->save();
-        Session::flash('message','Usuario actualizado correctamente');
-        return redirect::to('auditor/users');
-
+        //
     }
 
     /**
@@ -105,9 +88,6 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        $user=User::find($id);
-        $user->delete();
-        Session::flash('message','Usuario eliminado correctamente');
-        return redirect::to('auditor/users');
+        //
     }
 }

@@ -27,7 +27,7 @@
 
 
 
-        {!! Form::open(['route' => 'auditor.recibo.store', 'method' => 'POST']) !!}
+        {!! Form::open(['route' => 'admin.recibo.store', 'method' => 'POST']) !!}
         <div class="form-group">
             {!! Form::label('cod','Codigo') !!}
             {!! Form::text('cod',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}

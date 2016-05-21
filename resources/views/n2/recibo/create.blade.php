@@ -4,7 +4,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Crear Usuario</h1>
+                <h1 class="page-header">Crear Recibo</h1>
             </div>
             <div class="col-lg-12">
                 @if(count($errors)>0)
@@ -27,26 +27,24 @@
 
 
 
-        {!! Form::open(['route' => 'admin.users.store', 'method' => 'POST']) !!}
+        {!! Form::open(['route' => 'edit.recibo.store', 'method' => 'POST']) !!}
         <div class="form-group">
-            {!! Form::label('name','Nombre') !!}
-            {!! Form::text('name',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+            {!! Form::label('cod','Codigo') !!}
+            {!! Form::text('cod',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('fac','N° Factura') !!}
+            {!! Form::text('fac',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('val','Valor') !!}
+            {!! Form::text('val',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('desc','Descripcion') !!}
+            {!! Form::text('desc',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
         </div>
 
-        <div class="form-group">
-            {!! Form::label('email','Correo electrónico') !!}
-            {!! Form::email('email',null,['class' =>'form-control', 'placeholder' =>'example@gmail.com','required'])!!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('password','Contraseña') !!}
-            {!! Form::password('password',['class' =>'form-control', 'placeholder' =>'','required'])!!}
-        </div>
-
-        <div class="form-group"
-            {!! Form::label('role','Tipo de usuario') !!}
-            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','invited' => 'Invitado','member' => 'Miembro','edit'=>'Editor'  ,'admin'=>'Administrador'],null, ['class'=>'form-control']) !!}
-        </div>
 
         <div class="form-group">
             {!! Form::submit('Registrar', ['class' =>'btn btn-primary']) !!}

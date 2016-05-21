@@ -1,32 +1,50 @@
 @extends('index')
 
 @section('panel')
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                </div>
+                <!-- /input-group -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard Soft Auditor</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pencil fa-fw"></i>Recibos<span class="fa arrow"></span></a></a>
 
-    <div id="wrapper">
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('edit.recibo.index')}}">Listar Recibos</a>
+                    </li>
+                    <li>
+                        <a href="{{route('edit.recibo.create')}}">Crear Recibo</a>
+                    </li>
+                </ul>
+            </li>
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Nivel 2
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Consultas</a>
-                </li>
-                <li>
-                    <a href="#">Registros</a>
-                </li>
-                <li>
-                    <a href="#">Log Historico</a>
-                </li>
-                <li>
-                    <a href="#">Crear Usuarios</a>
-                </li>
-            </ul>
-        </div>
+            <li>
+                <a href=""><i class="fa fa-user fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('edit.users.index')}}">Listar Usuarios</a>
+                    </li>
+                    <li>
+                        <a href="{{route('edit.users.create')}}">Crear Usuario</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
 
+        </ul>
     </div>
+
 
 @endsection

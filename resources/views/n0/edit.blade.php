@@ -4,7 +4,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Crear Usuario</h1>
+                <h1 class="page-header">Editar Usuario</h1>
             </div>
             <div class="col-lg-12">
                 @if(count($errors)>0)
@@ -27,7 +27,7 @@
 
 
 
-        {!! Form::open(['route' => ['auditor.users.update',$user], 'method' => 'PUT']) !!}
+        {!! Form::open(['route' => ['admin.users.update',$user], 'method' => 'PUT']) !!}
         <div class="form-group">
             {!! Form::label('name','Nombre') !!}
             {!! Form::text('name',$user->name,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
