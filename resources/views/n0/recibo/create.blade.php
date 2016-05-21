@@ -29,19 +29,19 @@
 
         {!! Form::open(['route' => 'auditor.recibo.store', 'method' => 'POST']) !!}
         <div class="form-group">
-            {!! Form::label('cod','Nombre') !!}
+            {!! Form::label('cod','Codigo') !!}
             {!! Form::text('cod',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
         </div>
         <div class="form-group">
-            {!! Form::label('fac','Nombre') !!}
+            {!! Form::label('fac','N° Factura') !!}
             {!! Form::text('fac',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
         </div>
         <div class="form-group">
-            {!! Form::label('val','Nombre') !!}
+            {!! Form::label('val','Valor') !!}
             {!! Form::text('val',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
         </div>
         <div class="form-group">
-            {!! Form::label('desc','Nombre') !!}
+            {!! Form::label('desc','Descripcion') !!}
             {!! Form::text('desc',null,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
         </div>
 

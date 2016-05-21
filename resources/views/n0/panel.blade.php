@@ -18,9 +18,16 @@
                 <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard Soft Auditor</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-pencil fa-fw"></i>Facturas</a>
+                <a href="#"><i class="fa fa-pencil fa-fw"></i>Recibos<span class="fa arrow"></span></a></a>
 
-                <!-- /.nav-second-level -->
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('auditor.recibo.index')}}">Listar Recibos</a>
+                    </li>
+                    <li>
+                        <a href="{{route('auditor.recibo.create')}}">Crear Recibo</a>
+                    </li>
+                </ul>
             </li>
 
             <li>
@@ -30,7 +37,7 @@
                         <a href="{{route('auditor.users.index')}}">Listar Usuarios</a>
                     </li>
                     <li>
-                        <a href="{{route('auditor.users.create')}}">Crear Usuarios</a>
+                        <a href="{{route('auditor.users.create')}}">Crear Usuario</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

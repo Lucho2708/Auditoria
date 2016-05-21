@@ -9,6 +9,7 @@ use Auditoria\Http\Controllers\Controller;
 use Auditoria\Recibo;
 use Session;
 use Redirect;
+use Auditoria\Http\Requests\ReciboRequest;
 
 class ReciboController extends Controller
 {
@@ -40,13 +41,13 @@ class ReciboController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReciboRequest $request)
     {
 
-        $recibos = new Recibo ($request->all());
-        
-        $recibos->save();
-        Session::flash('message','Usuario creado correctamente');
+        $recibo= new Recibo ($request->all());
+
+        $recibo->save();
+        Session::flash('message','Recibo creado correctamente');
         return redirect::to('auditor/recibo');
     }
 
@@ -69,7 +70,8 @@ class ReciboController extends Controller
      */
     public function edit($id)
     {
-        //
+        $recibo=Recibo::find($id);
+        return view('n0.recibo.edit', compact('recibo'));
     }
 
     /**
@@ -79,9 +81,16 @@ class ReciboController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ReciboRequest $request, $id)
     {
-        //
+        
+        $recibo=Recibo::find($id);
+
+        $recibo->fill($request->all());
+        
+        $recibo->save();
+        Session::flash('message','Recibo actualizado correctamente');
+        return redirect::to('auditor/recibo');
     }
 
     /**
@@ -92,6 +101,10 @@ class ReciboController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $recibo=Recibo::find($id);
+
+        $recibo->delete();
+        Session::flash('message','Recibo eliminado correctamente');
+        return redirect::to('auditor/recibo');
     }
 }

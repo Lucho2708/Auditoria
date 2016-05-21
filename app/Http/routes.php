@@ -31,6 +31,11 @@ Route::get('users/{id}/destroy',[
 ]);
 
 
+Route::get('recibo/{id}/destroy',[
+    'uses' => 'ReciboController@destroy',
+    'as'=>'auditor.recibo.destroy'
+]);
+
 
 
 

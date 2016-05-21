@@ -14,11 +14,10 @@ class UserTableSeeder extends Seeder
         DB::table('users')->truncate();
 
         factory(Auditoria\User::class)-> create([
-            'name'=>'Edgar Lozano',
-            'email'=> 'EdgarLozano@auditor.com',
+            'name'=>'Luis Silva',
+            'email'=> 'luis.silva.2708@gmail.com',
             'role'=>'0',
-            'password'=>bcrypt('admin')
-
+            'password'=>bcrypt('admin12345')
         ]);
         factory(Auditoria\User::class, 99)->create();
     }

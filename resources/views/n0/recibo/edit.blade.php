@@ -26,22 +26,24 @@
 
 
 
-
-        {!! Form::open(['route' => ['auditor.users.update',$user], 'method' => 'PUT']) !!}
+        {!! Form::open(['route' =>[ 'auditor.recibo.update',$recibo], 'method' => 'PUT']) !!}
         <div class="form-group">
-            {!! Form::label('name','Nombre') !!}
-            {!! Form::text('name',$user->name,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+            {!! Form::label('cod','Nombre') !!}
+            {!! Form::text('cod',$recibo->cod,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('fac','Nombre') !!}
+            {!! Form::text('fac',$recibo->fac,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('val','Nombre') !!}
+            {!! Form::text('val',$recibo->val,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('desc','Nombre') !!}
+            {!! Form::text('desc',$recibo->desc,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
         </div>
 
-        <div class="form-group">
-            {!! Form::label('email','Correo electrónico') !!}
-            {!! Form::email('email',$user->email,['class' =>'form-control', 'placeholder' =>'example@gmail.com','required'])!!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('role','Tipo de usuario') !!}
-            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','invited' => 'Invitado','member' => 'Miembro','edit'=>'Editor'  ,'admin'=>'Administrador'], $user->role, ['class'=>'form-control']) !!}
-        </div>
 
         <div class="form-group">
             {!! Form::submit('Actualizar', ['class' =>'btn btn-primary']) !!}
@@ -50,6 +52,5 @@
 
 
         {!! Form::close() !!}
-
     </div>
 @endsection
