@@ -56,7 +56,7 @@ class UsersController extends Controller
         $user -> password=bcrypt($request->password);
         $user ->role=($request->role);
         $user->save();
-        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' creo un nuevo usuario '.$user);
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' creo un nuevo usuario '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
 
         Session::flash('message','Usuario creado correctamente');
         return redirect::to('admin/users');
