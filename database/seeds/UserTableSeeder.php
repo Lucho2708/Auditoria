@@ -19,6 +19,6 @@ class UserTableSeeder extends Seeder
             'role'=>'admin',
             'password'=>bcrypt('admin12345')
         ]);
-        factory(Auditoria\User::class, 99)->create();
+        
     }
 }

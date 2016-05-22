@@ -9,6 +9,7 @@ use Auditoria\User;
 use Session;
 use Redirect;
 use Auditoria\Http\Requests\UserRequest;
+use Log;
 
 class MemberUserController extends Controller
 {
@@ -17,10 +18,10 @@ class MemberUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $users =User::all();
-        
+        Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
         return view('member.index',compact('users'));
     }
 
@@ -46,6 +47,7 @@ class MemberUserController extends Controller
         $user -> password=bcrypt($request->password);
         $user ->role=($request->role);
         $user->save();
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' creo un nuevo usuario '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )');
         Session::flash('message','Usuario creado correctamente');
         return redirect::to('member/users');
     }

@@ -10,6 +10,7 @@ use Auditoria\Recibo;
 use Session;
 use Redirect;
 use Auditoria\Http\Requests\ReciboRequest;
+use Log;
 
 class MemberReciboController extends Controller
 {
@@ -18,10 +19,10 @@ class MemberReciboController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $recibos =Recibo::all();
-
+        Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
         return view('member.recibo.index',compact('recibos'));
     }
 

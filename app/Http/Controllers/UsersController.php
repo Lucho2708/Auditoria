@@ -27,7 +27,7 @@ class UsersController extends Controller
 
         
         $users =User::all();
-            Log::info('El usuario: '.$request->user()->name.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
+            Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
             return view('admin.index',compact('users'));
 
     }
@@ -56,7 +56,7 @@ class UsersController extends Controller
         $user -> password=bcrypt($request->password);
         $user ->role=($request->role);
         $user->save();
-        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' creo un nuevo usuario '.'( '.$user->id.' | '.$user->name.' | '.$user->email.' | '.$user->role.' )');
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' creo un nuevo usuario '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )');
 
         Session::flash('message','Usuario creado correctamente');
         return redirect::to('admin/users');

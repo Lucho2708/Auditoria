@@ -10,6 +10,7 @@ use Auditoria\User;
 use Session;
 use Redirect;
 use Auditoria\Http\Requests\UserRequest;
+use Log;
 
 class EditUserController extends Controller
 {
@@ -18,10 +19,10 @@ class EditUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $users =User::all();
-
+        Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
         return view('edit.index',compact('users'));
     }
 
@@ -47,6 +48,7 @@ class EditUserController extends Controller
         $user -> password=bcrypt($request->password);
         $user ->role=($request->role);
         $user->save();
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' creo un nuevo usuario '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )');
         Session::flash('message','Usuario creado correctamente');
         return redirect::to('edit/users');
     }
@@ -68,9 +70,10 @@ class EditUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
         $user=User::find($id);
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' va a editar '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
         return view('edit.edit', compact('user'));
     }
 
@@ -87,6 +90,7 @@ class EditUserController extends Controller
         $user->fill($request->all());
         $user->role=($request->role);
         $user->save();
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.'  fue editado '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
         Session::flash('message','Usuario actualizado correctamente');
         return redirect::to('edit/users');
     }
