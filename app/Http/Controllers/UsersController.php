@@ -16,22 +16,20 @@ use Log;
 
 class UsersController extends Controller
 {
-    public function showProfile($id)
-    {
 
-        Log::info('Showing user profile for user: '.$id);
-        dd(Log);
-        return view('user.profile', ['user' => User::findOrFail($id)]);
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        
         $users =User::all();
+            Log::info('El usuario: '.$request->user()->name.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
             return view('admin.index',compact('users'));
+
     }
     
 
@@ -51,12 +49,15 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(UserRequest $request )
     {
+
         $user = new User ($request->all());
         $user -> password=bcrypt($request->password);
         $user ->role=($request->role);
         $user->save();
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' creo un nuevo usuario '.$user);
+
         Session::flash('message','Usuario creado correctamente');
         return redirect::to('admin/users');
     }
@@ -78,9 +79,13 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( Request $request , $id)
     {
+
+        //dd($request->user()->name);
         $user=User::find($id);
+        //dd($user->name);
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' va a editar '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
         return view('admin.edit', compact('user'));
     }
 
@@ -97,6 +102,7 @@ class UsersController extends Controller
         $user->fill($request->all());
         $user->role=($request->role);
         $user->save();
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.'  fue editado '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
         Session::flash('message','Usuario actualizado correctamente');
         return redirect::to('admin/users');
 
@@ -108,9 +114,10 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( Request $request,$id)
     {
         $user=User::find($id);
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.'  Elimino a: '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
         $user->delete();
         Session::flash('message','Usuario eliminado correctamente');
         return redirect::to('admin/users');

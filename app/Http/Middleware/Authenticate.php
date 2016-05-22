@@ -42,6 +42,8 @@ class Authenticate
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
+                Log::info('Usuario no autenticado trata de ingresar al sistema');
+
                 return redirect::to('login');
             }
         }
