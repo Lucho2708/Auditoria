@@ -36,6 +36,8 @@ class RedirectIfAuthenticated
     {
         if ($this->auth->check()) {
 
+            
+
             if ($request->user()->role == 'edit'){
 
                 return redirect('/edit/users');

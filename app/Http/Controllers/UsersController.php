@@ -10,9 +10,19 @@ use Auditoria\User;
 use Session;
 use Redirect;
 use Auditoria\Http\Requests\UserRequest;
+use Log;
+
+
 
 class UsersController extends Controller
 {
+    public function showProfile($id)
+    {
+
+        Log::info('Showing user profile for user: '.$id);
+        dd(Log);
+        return view('user.profile', ['user' => User::findOrFail($id)]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,12 +31,7 @@ class UsersController extends Controller
     public function index()
     {
         $users =User::all();
-      
-
-
             return view('admin.index',compact('users'));
-      
-
     }
     
 
@@ -110,4 +115,6 @@ class UsersController extends Controller
         Session::flash('message','Usuario eliminado correctamente');
         return redirect::to('admin/users');
     }
+
+
 }

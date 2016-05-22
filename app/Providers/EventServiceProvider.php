@@ -13,7 +13,7 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Auditoria\Events\SomeEvent' => [
+        'Auditoria\Events\PageLoaded' => [
             'Auditoria\Listeners\EventListener',
         ],
     ];

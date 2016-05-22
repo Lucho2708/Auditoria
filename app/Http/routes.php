@@ -58,7 +58,7 @@ Route::group(['middleware'=>'auth:member','prefix' => 'member'], function () {
 });
 
 
-
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 
 

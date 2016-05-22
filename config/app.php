@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'single','daily'),
 
     /*
     |--------------------------------------------------------------------------
@@ -145,7 +145,9 @@ return [
         Auditoria\Providers\EventServiceProvider::class,
         Auditoria\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        'Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider',
 
+        
     ],
 
     /*

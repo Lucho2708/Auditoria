@@ -5,6 +5,7 @@ namespace Auditoria\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Redirect;
+use Log;
 
 class Authenticate
 {
@@ -23,6 +24,7 @@ class Authenticate
      */
     public function __construct(Guard $auth)
     {
+        
         $this->auth = $auth;
     }
 
@@ -45,7 +47,10 @@ class Authenticate
         }
         
         if ($request->user()->role != $role){
+
+            Log::info('El usuario: '.$request->user()->name.' con Email: '.$request->user()->email.' y perfil: '.$request->user()->role.' esta tratando de ingresa a un area restringida');
             return abort(403, 'Usuario No autorizado');
+
         }
     
         return $next($request);
