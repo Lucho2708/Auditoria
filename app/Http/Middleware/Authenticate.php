@@ -58,7 +58,7 @@ class Authenticate
 
         if ($request->user()->estado=='desacivado'){
 
-            
+
             return redirect::to('logout');
         }
 
