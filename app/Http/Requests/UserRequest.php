@@ -26,7 +26,7 @@ class UserRequest extends Request
         return [
             'name'=>'required|min:3|max:80',
             'email'=>'required|unique:users',
-            'password'=>'required|min:6|max:120'
+            'password'=>'required|confirmed|min:6|max:120'
         ];
     }
 }

@@ -41,8 +41,12 @@
             {!! Form::label('password','Contraseña') !!}
             {!! Form::password('password',['class' =>'form-control', 'placeholder' =>'','required'])!!}
         </div>
+        <div class="form-group">
+            {!! Form::label('password_confirmation','Confirmar contraseña') !!}
+            {!! Form::password('password_confirmation',['class' =>'form-control', 'placeholder' =>'','required'])!!}
+        </div>
 
-        <div class="form-group"
+        <div class="form-group">
             {!! Form::label('role','Tipo de usuario') !!}
             {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','invited' => 'Invitado','member' => 'Miembro','edit'=>'Editor'],null, ['class'=>'form-control']) !!}
         </div>

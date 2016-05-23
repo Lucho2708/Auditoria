@@ -44,9 +44,17 @@
         </div>
 
         <div class="form-group">
+            {!! Form::label('password_confirmation','Confirmar contraseña') !!}
+            {!! Form::password('password_confirmation',['class' =>'form-control', 'placeholder' =>'','required'])!!}
+        </div>
+
+
+        <div class="form-group">
             {!! Form::label('role','Tipo de usuario') !!}
             {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','invited' => 'Auditor','auditor' => 'Miembro','edit'=>'Editor'  ,'admin'=>'Administrador'],null, ['class'=>'form-control']) !!}
         </div>
+
+
 
         <div class="form-group">
             {!! Form::submit('Registrar', ['class' =>'btn btn-primary']) !!}
