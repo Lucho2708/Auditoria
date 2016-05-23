@@ -28,6 +28,7 @@ class UsersController extends Controller
         
         $users =User::all();
             Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
+        
             return view('admin.index',compact('users'));
 
     }
