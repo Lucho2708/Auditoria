@@ -7,6 +7,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Login</div>
                     <div class="panel-body">
+                        @if(Session::has('message'))
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                {{Session::get('message')}}
+                            </div>
+
+                        @endif
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
                                 Por favor corrige los siguientes errores:<br><br>
@@ -17,6 +24,7 @@
                                 </ul>
                             </div>
                         @endif
+
 
                         <form class="form-horizontal" role="form" method="POST" action="{{route('login')}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">

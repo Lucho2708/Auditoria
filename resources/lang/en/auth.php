@@ -14,6 +14,7 @@ return [
     */
 
     'failed' => 'These credentials do not match our records.',
+    'blockuser'=>'The user has been blocked contact your administrator',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];
