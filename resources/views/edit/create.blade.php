@@ -34,16 +34,16 @@
 
         <div class="form-group">
             {!! Form::label('email','Correo electrónico') !!}
-            {!! Form::email('email',null,['class' =>'form-control', 'placeholder' =>'example@gmail.com','required'])!!}
+            {!! Form::email('email',null,['class' =>'form-control', 'placeholder' =>'example@example.com','required'])!!}
         </div>
 
         <div class="form-group">
             {!! Form::label('password','Contraseña') !!}
-            {!! Form::password('password',['class' =>'form-control', 'placeholder' =>'','required'])!!}
+            {!! Form::password('password',['class' =>'form-control', 'placeholder' =>'Minimo 6 caracteres','required'])!!}
         </div>
         <div class="form-group">
             {!! Form::label('password_confirmation','Confirmar contraseña') !!}
-            {!! Form::password('password_confirmation',['class' =>'form-control', 'placeholder' =>'','required'])!!}
+            {!! Form::password('password_confirmation',['class' =>'form-control', 'placeholder' =>'Confirmar contraseña anterior','required'])!!}
         </div>
 
         <div class="form-group">
