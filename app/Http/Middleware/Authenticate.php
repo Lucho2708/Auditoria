@@ -4,6 +4,7 @@ namespace Auditoria\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 use Redirect;
 use Session;
 use Log;
@@ -27,6 +28,7 @@ class Authenticate
     {
 
         $this->auth = $auth;
+        
     }
 
     /**
@@ -58,7 +60,7 @@ class Authenticate
 
         if ($request->user()->estado=='desacivado'){
 
-
+            
             return redirect::to('logout');
         }
 

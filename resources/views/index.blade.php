@@ -85,6 +85,7 @@
 
             <ul class="dropdown-menu dropdown-user">
                 @if (Auth::guest())
+
                     <li><a href="{{route('login')}}"><i class="fa fa-user fa-fw"></i>Iniciar Sesión</a></li>
                 @else
                     <li><a href=""><i class="fa fa-user fa-fw"></i>Perfil</a>
