@@ -15,7 +15,7 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard Soft Auditor</a>
+                <a href="#"><i class="fa fa-dashboard fa-fw"></i> {{ Auth::user()->name}} - {{ Auth::user()->role }}</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-pencil fa-fw"></i>Recibos<span class="fa arrow"></span></a></a>

@@ -21,7 +21,9 @@ class EditUserController extends Controller
      */
     public function index(Request $request)
     {
-        $users =User::all();
+        $users =User::where('email','!=',($request->user()->email))
+            ->where('role','!=','Administrador')
+            ->get();
         Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
         return view('edit.index',compact('users'));
     }

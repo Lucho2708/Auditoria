@@ -39,8 +39,18 @@
         </div>
 
         <div class="form-group">
+            {!! Form::label('password','Contraseña') !!}
+            {!! Form::password('password',['class' =>'form-control', 'placeholder' =>'Minimo 6 caracteres','required'])!!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('password_confirmation','Confirmar contraseña') !!}
+            {!! Form::password('password_confirmation',['class' =>'form-control', 'placeholder' =>'Confirmar contraseña anterior','required'])!!}
+        </div>
+
+        <div class="form-group">
             {!! Form::label('role','Tipo de usuario') !!}
-            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','auditor' => 'Auditor','member' => 'Miembro','edit'=>'Editor'  ,'admin'=>'Administrador'], $user->role, ['class'=>'form-control']) !!}
+            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','Administrador'=>'Administrador','Editor'=>'Editor','Miembro' => 'Miembro'  ,'Auditor' => 'Auditor'],$user->role, ['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">

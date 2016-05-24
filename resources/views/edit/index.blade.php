@@ -27,7 +27,9 @@
                             <th>Nombres</th>
                             <th>E-mail</th>
                             <th>Tipo</th>
+                            <th>Estado</th>
                             <th>Accion</th>
+
 
                         </tr>
                         </thead>
@@ -35,9 +37,10 @@
 
                             <tr class="odd gradeX">
                                 @foreach($users as $user)
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->role}}</td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->role}}</td>
+                                    <td>{{$user->estado}}</td>
                                     <td>
                                         <a class="btn btn-success" href="{{route('edit.users.edit', $user->id)}}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                     </td>

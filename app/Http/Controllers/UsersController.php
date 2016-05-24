@@ -102,6 +102,7 @@ class UsersController extends Controller
     {
         $user=User::find($id);
         $user->fill($request->all());
+        $user -> password=bcrypt($request->password);
         $user->role=($request->role);
         $user->save();
         Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.'  fue editado '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');

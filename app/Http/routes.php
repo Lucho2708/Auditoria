@@ -20,7 +20,7 @@ Route::get('/',[
 
 ]);
 
-Route::group(['middleware'=>'auth:admin','prefix' => 'admin'], function () {
+Route::group(['middleware'=>'auth:Administrador','prefix' => 'admin'], function () {
 
     Route::resource('users','UsersController');
     Route::resource('recibo','ReciboController');
@@ -29,7 +29,7 @@ Route::group(['middleware'=>'auth:admin','prefix' => 'admin'], function () {
 
 Route::get('users/{id}/destroy',[
     
-    'middleware'=>'auth:admin',
+    'middleware'=>'auth:Administrador',
     'uses' => 'UsersController@destroy',
     'as'=>'admin.users.destroy'
 ]);
@@ -37,14 +37,14 @@ Route::get('users/{id}/destroy',[
 
 Route::get('recibo/{id}/destroy',[
 
-    'middleware'=>'auth:admin',
+    'middleware'=>'auth:Administrador',
     'uses' => 'ReciboController@destroy',
     'as'=>'admin.recibo.destroy'
 ]);
 
 
 
-Route::group(['middleware'=>'auth:auditor','prefix' => 'auditor'], function () {
+Route::group(['middleware'=>'auth:Auditor','prefix' => 'auditor'], function () {
 
     Route::resource('users','AuditorUserController');
     Route::resource('recibo','AuditorReciboController');
@@ -53,7 +53,7 @@ Route::group(['middleware'=>'auth:auditor','prefix' => 'auditor'], function () {
 
 Route::get('users/{id}/destroy',[
 
-    'middleware'=>'auth:auditor',
+    'middleware'=>'auth:Auditor',
     'uses' => 'AuditorUserController@destroy',
     'as'=>'auditor.users.destroy'
 ]);
@@ -61,7 +61,7 @@ Route::get('users/{id}/destroy',[
 
 Route::get('recibo/{id}/destroy',[
 
-    'middleware'=>'auth:auditor',
+    'middleware'=>'auth:Auditor',
     'uses' => 'AuditorReciboController@destroy',
     'as'=>'auditor.recibo.destroy'
 ]);
@@ -70,7 +70,7 @@ Route::get('recibo/{id}/destroy',[
 
 
 
-Route::group(['middleware'=>'auth:edit','prefix' => 'edit'], function () {
+Route::group(['middleware'=>'auth:Editor','prefix' => 'edit'], function () {
 
     Route::resource('users','EditUserController');
     Route::resource('recibo','EditReciboController');
@@ -78,7 +78,7 @@ Route::group(['middleware'=>'auth:edit','prefix' => 'edit'], function () {
 });
 
 
-Route::group(['middleware'=>'auth:member','prefix' => 'member'], function () {
+Route::group(['middleware'=>'auth:Miembro','prefix' => 'member'], function () {
 
     Route::resource('users','MemberUserController');
     Route::resource('recibo','MemberReciboController');

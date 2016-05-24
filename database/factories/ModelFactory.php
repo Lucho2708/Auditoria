@@ -17,5 +17,15 @@ $factory->define(Auditoria\User::class, function (Faker\Generator $faker) {
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+        'role'=>$faker->randomElement(['Administrador','Editor','Miembro','Auditor'])
     ];
 });
+
+$factory->define(Auditoria\Recibo::class, function (Faker\Generator $faker) {
+    return [
+        
+
+       
+    ];
+});
+

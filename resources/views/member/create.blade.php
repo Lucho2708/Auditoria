@@ -47,7 +47,7 @@
         </div>
         <div class="form-group"
             {!! Form::label('role','Tipo de usuario') !!}
-            {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','member' => 'Miembro'],null, ['class'=>'form-control']) !!}
+        {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','Miembro' => 'Miembro'  ,'Auditor' => 'Auditor'],null, ['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">

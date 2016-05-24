@@ -38,23 +38,20 @@ class RedirectIfAuthenticated
 
             
 
-            if ($request->user()->role == 'edit'){
+            if ($request->user()->role == 'Editor'){
 
                 return redirect('/edit/users');
             }
-            if ($request->user()->role == 'admin'){
+            if ($request->user()->role == 'Administrador'){
 
                 return redirect('/admin/users');
             }
-            if ($request->user()->role == 'member'){
+            if ($request->user()->role == 'Miembro'){
 
                 return redirect('/member/users');
             }
-            if ($request->user()->role == 'edit'){
-
-                return redirect('/edit/users');
-            }
-            if ($request->user()->role == 'auditor'){
+            
+            if ($request->user()->role == 'Auditor'){
 
                 return redirect('/auditor/users');
             }

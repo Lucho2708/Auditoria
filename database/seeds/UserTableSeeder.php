@@ -16,9 +16,10 @@ class UserTableSeeder extends Seeder
         factory(Auditoria\User::class)-> create([
             'name'=>'Luis Silva',
             'email'=> 'luis.silva.2708@gmail.com',
-            'role'=>'admin',
+            'role'=>'Administrador',
             'password'=>bcrypt('admin12345')
         ]);
+        factory(Auditoria\User::class,100)->create();
 
         
         
