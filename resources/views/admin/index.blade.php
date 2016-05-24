@@ -27,6 +27,7 @@
                             <th>Nombres</th>
                             <th>E-mail</th>
                             <th>Tipo</th>
+                            <th>Estado</th>
                             <th>Accion</th>
 
                         </tr>
@@ -38,6 +39,7 @@
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->role}}</td>
+                                <td>{{$user->estado}}</td>
                                     <td>
                                         <a class="btn btn-success" href="{{route('admin.users.edit', $user->id)}}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                         <a class="btn btn-danger" href="{{route('admin.users.destroy',$user->id)}}" onclick="return confirm('Quiere borrar el resgitro de {{$user->name}}  ?') " , role="button"><i class="fa fa-trash-o" aria-hidden="true"></i></a>

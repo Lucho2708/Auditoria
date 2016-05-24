@@ -52,6 +52,10 @@
             {!! Form::label('role','Tipo de usuario') !!}
             {!! Form:: select('role',['class'=>'Seleccione tipo de usuario','Administrador'=>'Administrador','Editor'=>'Editor','Miembro' => 'Miembro'  ,'Auditor' => 'Auditor'],$user->role, ['class'=>'form-control']) !!}
         </div>
+        <div class="form-group">
+            {!! Form::label('estado','Estado') !!}
+            {!! Form:: select('estado',['class'=>'Seleccione tipo de estado','Activado'=>'Activado','Desacivado'=>'Desacivado'],$user->estado, ['class'=>'form-control']) !!}
+        </div>
 
         <div class="form-group">
             {!! Form::submit('Actualizar', ['class' =>'btn btn-primary']) !!}
