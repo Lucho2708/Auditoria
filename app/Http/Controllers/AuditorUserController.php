@@ -13,10 +13,8 @@ use Auditoria\Http\Requests\UserRequest;
 use Log;
 
 
-
-class UsersController extends Controller
+class AuditorUserController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -24,16 +22,11 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        //dd($request->user()->email);
+        $users =User::all();
+        Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
 
-        
-        $users =User::where('email','!=',($request->user()->email))->get();
-            Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
-        
-            return view('admin.index',compact('users'));
-
+        return view('auditor.index',compact('users'));
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -42,7 +35,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        return view('auditor.create');
     }
 
     /**
@@ -51,9 +44,8 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request )
+    public function store(Request $request)
     {
-
         $user = new User ($request->all());
         $user -> password=bcrypt($request->password);
         $user ->role=($request->role);
@@ -61,7 +53,7 @@ class UsersController extends Controller
         Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' creo un nuevo usuario '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )');
 
         Session::flash('message','Usuario creado correctamente');
-        return redirect::to('admin/users');
+        return redirect::to('auditor/users');
     }
 
     /**
@@ -81,14 +73,13 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit( Request $request , $id)
+    public function edit(Request $request ,$id)
     {
-
         //dd($request->user()->name);
         $user=User::find($id);
         //dd($user->name);
         Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' va a editar '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
-        return view('admin.edit', compact('user'));
+        return view('auditor.edit', compact('user'));
     }
 
     /**
@@ -106,8 +97,7 @@ class UsersController extends Controller
         $user->save();
         Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.'  fue editado '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
         Session::flash('message','Usuario actualizado correctamente');
-        return redirect::to('admin/users');
-
+        return redirect::to('auditor/users');
     }
 
     /**
@@ -116,14 +106,12 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( Request $request,$id)
+    public function destroy(Request $request,$id)
     {
         $user=User::find($id);
         Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.'  Elimino a: '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
         $user->delete();
         Session::flash('message','Usuario eliminado correctamente');
-        return redirect::to('admin/users');
+        return redirect::to('auditor/users');
     }
-
-
 }

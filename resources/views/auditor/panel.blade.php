@@ -22,10 +22,10 @@
 
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{route('admin.recibo.index')}}">Listar Recibos</a>
+                        <a href="{{route('auditor.recibo.index')}}">Listar Recibos</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.recibo.create')}}">Crear Recibo</a>
+                        <a href="{{route('auditor.recibo.create')}}">Crear Recibo</a>
                     </li>
                 </ul>
             </li>
@@ -34,13 +34,12 @@
                 <a href=""><i class="fa fa-user fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{route('admin.users.index')}}">Listar Usuarios</a>
+                        <a href="{{route('auditor.users.index')}}">Listar Usuarios</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.users.create')}}">Crear Usuario</a>
+                        <a href="{{route('auditor.users.create')}}">Crear Usuario</a>
                     </li>
                 </ul>
-
                 <!-- /.nav-second-level -->
             </li>
             <li>

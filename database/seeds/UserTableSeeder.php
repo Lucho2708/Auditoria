@@ -19,6 +19,8 @@ class UserTableSeeder extends Seeder
             'role'=>'admin',
             'password'=>bcrypt('admin12345')
         ]);
+
+        
         
     }
 }

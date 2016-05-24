@@ -12,7 +12,7 @@ use Redirect;
 use Auditoria\Http\Requests\ReciboRequest;
 use Log;
 
-class ReciboController extends Controller
+class AuditorReciboController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class ReciboController extends Controller
     {
         $recibos =Recibo::all();
         Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
-        return view('admin.recibo.index',compact('recibos'));
+        return view('auditor.recibo.index',compact('recibos'));
     }
 
     /**
@@ -33,7 +33,7 @@ class ReciboController extends Controller
      */
     public function create()
     {
-        return view('admin.recibo.create');
+        return view('auditor.recibo.create');
     }
 
     /**
@@ -42,14 +42,13 @@ class ReciboController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ReciboRequest $request)
+    public function store(Request $request)
     {
-
         $recibo= new Recibo ($request->all());
-        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' creo un nuevo usuario '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )');
+        
         $recibo->save();
         Session::flash('message','Recibo creado correctamente');
-        return redirect::to('admin/recibo');
+        return redirect::to('auditor/recibo');
     }
 
     /**
@@ -69,11 +68,11 @@ class ReciboController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit(Request $request,$id)
     {
         $recibo=Recibo::find($id);
-        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' va a editar '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
-        return view('admin.recibo.edit', compact('recibo'));
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' va a editar '.'( '.$recibo->name.' | '.$recibo->email.' | '.$recibo->role.' )');
+        return view('auditor.recibo.edit', compact('recibo'));
     }
 
     /**
@@ -85,15 +84,14 @@ class ReciboController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $recibo=Recibo::find($id);
 
         $recibo->fill($request->all());
-        
+
         $recibo->save();
-        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.'  fue editado '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
+        Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.'  fue editado '.'( '.$recibo->name.' | '.$recibo->email.' | '.$recibo->role.' )');
         Session::flash('message','Recibo actualizado correctamente');
-        return redirect::to('admin/recibo');
+        return redirect::to('auditor/recibo');
     }
 
     /**
@@ -102,13 +100,12 @@ class ReciboController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
-
         $recibo=Recibo::find($id);
         Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.'  Elimino a: '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
         $recibo->delete();
         Session::flash('message','Recibo eliminado correctamente');
-        return redirect::to('admin/recibo');
+        return redirect::to('auditor/recibo');
     }
 }

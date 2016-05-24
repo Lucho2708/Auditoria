@@ -54,6 +54,10 @@ class RedirectIfAuthenticated
 
                 return redirect('/edit/users');
             }
+            if ($request->user()->role == 'auditor'){
+
+                return redirect('/auditor/users');
+            }
         }
 
         return $next($request);

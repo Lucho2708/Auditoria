@@ -42,6 +42,34 @@ Route::get('recibo/{id}/destroy',[
     'as'=>'admin.recibo.destroy'
 ]);
 
+
+
+Route::group(['middleware'=>'auth:auditor','prefix' => 'auditor'], function () {
+
+    Route::resource('users','AuditorUserController');
+    Route::resource('recibo','AuditorReciboController');
+
+});
+
+Route::get('users/{id}/destroy',[
+
+    'middleware'=>'auth:auditor',
+    'uses' => 'AuditorUserController@destroy',
+    'as'=>'auditor.users.destroy'
+]);
+
+
+Route::get('recibo/{id}/destroy',[
+
+    'middleware'=>'auth:auditor',
+    'uses' => 'AuditorReciboController@destroy',
+    'as'=>'auditor.recibo.destroy'
+]);
+
+
+
+
+
 Route::group(['middleware'=>'auth:edit','prefix' => 'edit'], function () {
 
     Route::resource('users','EditUserController');
