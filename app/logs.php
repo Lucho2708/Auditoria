@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class logs extends Model
 {
-    protected $fillable = ['name', 'role','accion', 'descripcion' ];
+    protected $fillable = ['name','email', 'role','accion', 'descripcion' ];
 }

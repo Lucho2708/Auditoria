@@ -29,7 +29,7 @@ class MemberUserController extends Controller
         //Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
         DB::table('logs')
             ->insert(
-                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'accion'=> 'CONSULTA','descripcion'=> 'VISUALIZO EL LISTADO DE USUARIOS','date_time'=>$date = Carbon::now()]
+                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'email'=> $request->user()->email,'accion'=> 'CONSULTA','descripcion'=> 'VISUALIZO EL LISTADO DE USUARIOS','date_time'=>$date = Carbon::now()]
 
             );
         return view('member.index',compact('users'));
@@ -60,7 +60,7 @@ class MemberUserController extends Controller
         //Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' creo un nuevo usuario '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )');
         DB::table('logs')
             ->insert(
-                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'accion'=> 'CREACION','descripcion'=> 'USUARIO: '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )','date_time'=>$date = Carbon::now()]
+                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'email'=> $request->user()->email,'accion'=> 'CREACION','descripcion'=> 'USUARIO: '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )','date_time'=>$date = Carbon::now()]
 
             );
         Session::flash('message','Usuario creado correctamente');

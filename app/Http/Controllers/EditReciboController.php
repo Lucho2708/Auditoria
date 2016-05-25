@@ -26,7 +26,7 @@ class EditReciboController extends Controller
         //Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
         DB::table('logs')
             ->insert(
-                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'accion'=> 'CONSULTA','descripcion'=> 'VISUALIZO EL LISTADO DE RECIBOS','date_time'=>$date = Carbon::now()]
+                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'email'=> $request->user()->email,'accion'=> 'CONSULTA','descripcion'=> 'VISUALIZO EL LISTADO DE RECIBOS','date_time'=>$date = Carbon::now()]
 
             );
         return view('edit.recibo.index',compact('recibos'));
@@ -55,6 +55,7 @@ class EditReciboController extends Controller
         DB::table('logs')
             ->insert(
                 [ 'usuario'=> $request->user()->name,
+                    'email'=> $request->user()->email,
                     'role'=> $request->user()->role,
                     'accion'=> 'CREACION',
                     'descripcion'=> 'RECIBO: '.
@@ -93,6 +94,7 @@ class EditReciboController extends Controller
         DB::table('logs')
             ->insert(
                 [ 'usuario'=> $request->user()->name,
+                    'email'=> $request->user()->email,
                     'role'=> $request->user()->role,
                     'accion'=> 'EDICION',
                     'descripcion'=> 'RECIBO: '.
@@ -123,6 +125,7 @@ class EditReciboController extends Controller
         DB::table('logs')
             ->insert(
                 [ 'usuario'=> $request->user()->name,
+                    'email'=> $request->user()->email,
                     'role'=> $request->user()->role,
                     'accion'=> 'ACTUALIZACION',
                     'descripcion'=> 'RECIBO: '.

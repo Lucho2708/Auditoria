@@ -20,6 +20,21 @@ Route::get('/',[
 
 ]);
 
+Route::get('auditor/logs',[
+    'middleware'=>'auth:Auditor',
+    'uses' => 'AuditorUserController@logs',
+    'as'=>'logsauditor'
+
+]);
+Route::get('admin/logs',[
+    'middleware'=>'auth:Administrador',
+    'uses' => 'UsersController@logs',
+    'as'=>'logsadmin'
+
+]);
+
+
+
 Route::group(['middleware'=>'auth:Administrador','prefix' => 'admin'], function () {
 
     Route::resource('users','UsersController');
@@ -84,9 +99,6 @@ Route::group(['middleware'=>'auth:Miembro','prefix' => 'member'], function () {
     Route::resource('recibo','MemberReciboController');
 
 });
-
-
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 
 

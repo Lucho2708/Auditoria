@@ -27,7 +27,7 @@ class ReciboController extends Controller
         //Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
         DB::table('logs')
             ->insert(
-                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'accion'=> 'CONSULTA','descripcion'=> 'VISUALIZO EL LISTADO DE RECIBOS','date_time'=>$date = Carbon::now()]
+                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'email'=> $request->user()->email,'accion'=> 'CONSULTA','descripcion'=> 'VISUALIZO EL LISTADO DE RECIBOS','date_time'=>$date = Carbon::now()]
 
             );
         return view('admin.recibo.index',compact('recibos'));
@@ -60,6 +60,7 @@ class ReciboController extends Controller
         DB::table('logs')
             ->insert(
                 [ 'usuario'=> $request->user()->name,
+                    'email'=> $request->user()->email,
                     'role'=> $request->user()->role,
                     'accion'=> 'CREACION',
                     'descripcion'=> 'RECIBO: '.
@@ -97,6 +98,7 @@ class ReciboController extends Controller
         DB::table('logs')
             ->insert(
                 [ 'usuario'=> $request->user()->name,
+                    'email'=> $request->user()->email,
                     'role'=> $request->user()->role,
                     'accion'=> 'EDICION',
                     'descripcion'=> 'RECIBO: '.
@@ -128,6 +130,7 @@ class ReciboController extends Controller
         DB::table('logs')
             ->insert(
                 [ 'usuario'=> $request->user()->name,
+                    'email'=> $request->user()->email,
                     'role'=> $request->user()->role,
                     'accion'=> 'ACTUALIZACION',
                     'descripcion'=> 'RECIBO: '.
@@ -148,6 +151,7 @@ class ReciboController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request,$id)
+
     {
 
         $recibo=Recibo::find($id);
@@ -155,6 +159,7 @@ class ReciboController extends Controller
         DB::table('logs')
             ->insert(
                 [ 'usuario'=> $request->user()->name,
+                    'email'=> $request->user()->email,
                     'role'=> $request->user()->role,
                     'accion'=> 'ELIMINACION',
                     'descripcion'=> 'RECIBO: '.

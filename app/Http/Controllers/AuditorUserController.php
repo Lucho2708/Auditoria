@@ -13,6 +13,7 @@ use Auditoria\Http\Requests\UserRequest;
 use Log;
 use DB;
 use Carbon\Carbon;
+use Auditoria\logs;
 
 class AuditorUserController extends Controller
 {
@@ -27,7 +28,7 @@ class AuditorUserController extends Controller
         //Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
         DB::table('logs')
             ->insert(
-                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'accion'=> 'CONSULTA','descripcion'=> 'VISUALIZO EL LISTADO DE USUARIOS','date_time'=>$date = Carbon::now()]
+                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'email'=> $request->user()->email,'accion'=> 'CONSULTA','descripcion'=> 'VISUALIZO EL LISTADO DE USUARIOS','date_time'=>$date = Carbon::now()]
 
             );
         return view('auditor.index',compact('users'));
@@ -41,6 +42,19 @@ class AuditorUserController extends Controller
     public function create()
     {
         return view('auditor.create');
+    }
+    public function logs(Request $request)
+    {
+        
+        $logs =logs::where('email','!=',($request->user()->email))->get();
+        DB::table('logs')
+            ->insert(
+                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'email'=> $request->user()->email,'accion'=> 'CONSULTA','descripcion'=> 'VISUALIZO EL LISTADO DE LOGS','date_time'=>$date = Carbon::now()]
+
+            );
+
+        return view('auditor.logs',compact('logs'));
+    
     }
 
     /**
@@ -58,7 +72,7 @@ class AuditorUserController extends Controller
         //Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' creo un nuevo usuario '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )');
         DB::table('logs')
             ->insert(
-                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'accion'=> 'CREACION','descripcion'=> 'USUARIO: '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )','date_time'=>$date = Carbon::now()]
+                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'email'=> $request->user()->email,'accion'=> 'CREACION','descripcion'=> 'USUARIO: '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )','date_time'=>$date = Carbon::now()]
 
             );
         Session::flash('message','Usuario creado correctamente');
@@ -90,7 +104,7 @@ class AuditorUserController extends Controller
         //Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.' va a editar '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
         DB::table('logs')
             ->insert(
-                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'accion'=> 'EDICION','descripcion'=> 'USUARIO: '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )','date_time'=>$date = Carbon::now()]
+                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'email'=> $request->user()->email,'accion'=> 'EDICION','descripcion'=> 'USUARIO: '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )','date_time'=>$date = Carbon::now()]
 
             );
         return view('auditor.edit', compact('user'));
@@ -112,7 +126,7 @@ class AuditorUserController extends Controller
         //Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.'  fue editado '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
         DB::table('logs')
             ->insert(
-                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'accion'=> 'ACTUALIZACION','descripcion'=> 'USUARIO: '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )','date_time'=>$date = Carbon::now()]
+                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'email'=> $request->user()->email,'accion'=> 'ACTUALIZACION','descripcion'=> 'USUARIO: '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )','date_time'=>$date = Carbon::now()]
 
             );
         Session::flash('message','Usuario actualizado correctamente');
@@ -131,7 +145,7 @@ class AuditorUserController extends Controller
         //Log::info('El Usuario: '. $request->user()->name.' con email: '.$request->user()->email.'  Elimino a: '.'( '.$user->name.' | '.$user->email.' | '.$user->role.' )');
         DB::table('logs')
             ->insert(
-                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'accion'=> 'ELIMINACION','descripcion'=> 'USUARIO: '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )','date_time'=>$date = Carbon::now()]
+                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'email'=> $request->user()->email,'accion'=> 'ELIMINACION','descripcion'=> 'USUARIO: '.'( ID: '.$user->id.' | NOMBRE: '.$user->name.' | EMAIL: '.$user->email.' | TIPO: '.$user->role.' | FECHA CREACION: '.$user->created_at.' | FECHA ULTIMA SESION: '.$user->updated_at.' )','date_time'=>$date = Carbon::now()]
 
             );
         $user->delete();
