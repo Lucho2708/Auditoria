@@ -44,7 +44,7 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="glyphicon glyphicon-file"></i> Logs Historicos </a>
+                <a href="{{route('logsadmin')}}"><i class="glyphicon glyphicon-file"></i> Logs Historicos </a>
             </li>
 
         </ul>

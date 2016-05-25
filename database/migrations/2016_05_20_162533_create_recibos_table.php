@@ -18,7 +18,6 @@ class CreateRecibosTable extends Migration
             $table->integer('fac')->unique();
             $table->string('val');
             $table->string('desc');
-            $table->integer('id_user');
             $table->timestamps();
         });
 

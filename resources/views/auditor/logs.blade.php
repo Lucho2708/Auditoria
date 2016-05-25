@@ -4,7 +4,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Usuarios</h1>
+                <h1 class="page-header">Logs</h1>
             </div>
 
             <div class="panel-body">
@@ -24,28 +24,36 @@
 
                         <thead>
                         <tr>
-                            <th>Nombres</th>
-                            <th>E-mail</th>
-                            <th>Tipo</th>
+
+                            <th>Usuario</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Accion</th>
+                            <th>Descripcion</th>
+                            <th>Fecha</th>
 
 
                         </tr>
                         </thead>
                         <tbody>
 
-                            <tr class="odd gradeX">
-                                @foreach($users as $user)
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->role}}</td>
+                        <tr class="odd gradeX">
+                            @foreach($logs as $log)
 
-                            </tr>
+                                <td>{{$log->usuario}}</td>
+                                <td>{{$log->email}}</td>
+                                <td>{{$log->role}}</td>
+                                <td>{{$log->accion}}</td>
+                                <td>{{$log->descripcion}}</td>
+                                <td>{{$log->date_time}}</td>
+
+                        </tr>
                         @endforeach
 
                         </tbody>
                     </table>
                 </div>
-        </div>
+            </div>
         </div>
     </div>
 @endsection

@@ -29,7 +29,7 @@
                             <th>Factura</th>
                             <th>Valor</th>
                             <th>Descripcion</th>
-                            <th>Accionesr</th>
+
 
                         </tr>
                         </thead>
@@ -42,10 +42,7 @@
                                     <td>{{$recibo->fac}}</td>
                                     <td>{{$recibo->val}}</td>
                                     <td>{{$recibo->desc}}</td>
-                                    <td>
-                                        <a class="btn btn-success" href="{{route('admin.recibo.edit', $recibo->id)}}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                        <a class="btn btn-danger" href="{{route('admin.recibo.destroy',$recibo->id)}}" onclick="return confirm('Quiere borrar el resgitro de {{$recibo->id}}  ?') " , role="button"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                                    </td>
+
                             </tr>
                         @endforeach
 
