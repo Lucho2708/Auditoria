@@ -11,6 +11,8 @@ use Session;
 use Redirect;
 use Auditoria\Http\Requests\ReciboRequest;
 use Log;
+use DB;
+use Carbon\Carbon;
 
 class MemberReciboController extends Controller
 {
@@ -22,7 +24,12 @@ class MemberReciboController extends Controller
     public function index(Request $request)
     {
         $recibos =Recibo::all();
-        Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
+        //Log::info('El usuario: '.$request->user()->name.'  Con ID: '.$request->user()->id.' con email: '.$request->user()->email.' visualisa todos los usuarios ');
+        DB::table('logs')
+            ->insert(
+                [ 'usuario'=> $request->user()->name,'role'=> $request->user()->role,'accion'=> 'CONSULTA','descripcion'=> 'VISUALIZO EL LISTADO DE RECIBOS','date_time'=>$date = Carbon::now()]
+
+            );
         return view('member.recibo.index',compact('recibos'));
     }
 

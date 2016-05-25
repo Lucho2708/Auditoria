@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRecibosTable extends Migration
+class CreateLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,15 @@ class CreateRecibosTable extends Migration
      */
     public function up()
     {
-        Schema::create('recibos', function (Blueprint $table) {
+        Schema::create('logs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cod')->unique();
-            $table->integer('fac')->unique();
-            $table->string('val');
-            $table->string('desc');
-            $table->timestamps();
+            $table->string('usuario');
+            $table->string('role');
+            $table->string('accion');
+            $table->string('descripcion');
+            $table->string('date_time');
+
         });
-
-
-
     }
 
     /**
@@ -32,8 +30,6 @@ class CreateRecibosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('recibos');
+        Schema::drop('logs');
     }
 }
-
-
