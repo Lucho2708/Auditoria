@@ -27,7 +27,7 @@ Route::group(['middleware'=>'auth:Administrador','prefix' => 'admin'], function 
     
 });
 
-Route::get('users/{id}/destroy',[
+Route::get('admin/users/{id}/destroy',[
     
     'middleware'=>'auth:Administrador',
     'uses' => 'UsersController@destroy',
@@ -35,7 +35,7 @@ Route::get('users/{id}/destroy',[
 ]);
 
 
-Route::get('recibo/{id}/destroy',[
+Route::get('admin/recibo/{id}/destroy',[
 
     'middleware'=>'auth:Administrador',
     'uses' => 'ReciboController@destroy',
@@ -51,7 +51,7 @@ Route::group(['middleware'=>'auth:Auditor','prefix' => 'auditor'], function () {
 
 });
 
-Route::get('users/{id}/destroy',[
+Route::get('auditor/users/{id}/destroy',[
 
     'middleware'=>'auth:Auditor',
     'uses' => 'AuditorUserController@destroy',
@@ -59,7 +59,7 @@ Route::get('users/{id}/destroy',[
 ]);
 
 
-Route::get('recibo/{id}/destroy',[
+Route::get('auditor/recibo/{id}/destroy',[
 
     'middleware'=>'auth:Auditor',
     'uses' => 'AuditorReciboController@destroy',
