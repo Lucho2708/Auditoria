@@ -16,6 +16,6 @@ return [
     'failed' => 'Estas credenciales no coinciden con nuestros registros.',
     'blockuser'=>'El usuario ha sido bloqueado contacte a su administrador',
     //'throttle' => 'Demasiados intentos de inicio de sesión. Vuelva a intentarlo en :seconds segundos.',
-    'throttle' => 'Demasiados intentos de inicio de sesión. Su cuenta fue bloqueada contactece con su Administrador Vuelva a intentarlo en :seconds segundos con otra cuenta.',
+    'throttle' => 'Demasiados intentos de conexión . Por favor, inténtelo de nuevo en :seconds segundos.',
 
 ];

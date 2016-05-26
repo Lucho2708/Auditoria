@@ -58,7 +58,7 @@ class Authenticate
 
         }
 
-        if ($request->user()->estado=='desacivado'){
+        if ($request->user()->estado=='Desactivado'){
 
             
             return redirect::to('logout');
