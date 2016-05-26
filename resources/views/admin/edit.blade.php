@@ -54,7 +54,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('estado','Estado') !!}
-            {!! Form:: select('estado',['class'=>'Seleccione tipo de estado','Activado'=>'Activado','Desacivado'=>'Desacivado'],$user->estado, ['class'=>'form-control']) !!}
+            {!! Form:: select('estado',['class'=>'Seleccione tipo de estado','Activado'=>'Activado','Desactivado'=>'Desactivado'],$user->estado, ['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">
