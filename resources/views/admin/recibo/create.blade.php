@@ -38,11 +38,18 @@
         </div>
         <div class="form-group">
             {!! Form::label('val','Valor') !!}
-            {!! Form::number('val',null,['class' =>'form-control', 'placeholder' =>'Ingrese un valor','required'])!!}
+            {!! Form::text('val',null,['class' =>'form-control', 'placeholder' =>'Ingrese un valor','required'])!!}
         </div>
         <div class="form-group">
             {!! Form::label('desc','Descripcion') !!}
-            {!! Form::text('desc',null,['class' =>'form-control', 'placeholder' =>'Ingrese una descripcion','required'])!!}
+            {!! Form::text('desc',null,['class' =>'form-control', 'placeholder' =>'Ingrese una descripcion','required'])
+
+
+
+            !!}
+        </div>
+        <div>
+
         </div>
 
 
@@ -55,4 +62,14 @@
         {!! Form::close() !!}
 
     </div>
+@endsection
+@section('scripts')
+
+    <script>
+        $(document).ready(function() {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
+        });
+    </script>
 @endsection

@@ -156,6 +156,11 @@
 <!-- Custom Theme JavaScript -->
 {!! Html::script('../dist/js/sb-admin-2.js') !!}
 
+        <!-- Custom Acconting -->
+{!! Html::script('../accounting.js') !!}
+{!! Html::script('../js/accounting.min.js') !!}
+
+
 
 
 @yield('scripts')
