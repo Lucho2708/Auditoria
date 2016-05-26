@@ -54,10 +54,15 @@ trait ThrottlesLogins
         return $this->maxLoginAttempts() - $attempts + 1;
     }
     protected  function bloqueo($email){
-        DB::table('users')
+        $dats=DB::table('users')
             ->where('email',$email)
             ->update(['estado'=>'Desactivado']);
-        return('El usuaro: '.$email.' bloqueado hable con su administrador ');
+        if ($dats==0){
+            return ('El usuario: '. $email.' no existe. Hable con su administrador para crear el registro.');
+        }else{
+            return('El usuaro: '.$email.' bloqueado. Hable con su administrador. ');
+        }
+
     }
 
     /**
