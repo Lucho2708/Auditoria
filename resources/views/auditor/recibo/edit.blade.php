@@ -27,21 +27,21 @@
 
 
         {!! Form::open(['route' =>[ 'admin.recibo.update',$recibo], 'method' => 'PUT']) !!}
-        <div class="form-group">
-            {!! Form::label('cod','Nombre') !!}
-            {!! Form::text('cod',$recibo->cod,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+        <div>
+            {!! Form::label('cod','Codigo') !!}
+            {!! Form::number('cod',$recibo->cod,['class' =>'form-control', 'placeholder' =>'Ingrese un codigo','required'])!!}
         </div>
         <div class="form-group">
-            {!! Form::label('fac','Nombre') !!}
-            {!! Form::text('fac',$recibo->fac,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+            {!! Form::label('fac','N° Factura') !!}
+            {!! Form::number('fac',$recibo->fac,['class' =>'form-control', 'placeholder' =>'Ingrese un numero de factura','required'])!!}
         </div>
         <div class="form-group">
-            {!! Form::label('val','Nombre') !!}
-            {!! Form::text('val',$recibo->val,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+            {!! Form::label('val','Valor') !!}
+            {!! Form::text('val',$recibo->val,['class' =>'form-control', 'placeholder' =>'Ingrese un valor','required'])!!}
         </div>
         <div class="form-group">
-            {!! Form::label('desc','Nombre') !!}
-            {!! Form::text('desc',$recibo->desc,['class' =>'form-control', 'placeholder' =>'Nombre Completo','required'])!!}
+            {!! Form::label('desc','Descripcion') !!}
+            {!! Form::text('desc',$recibo->desc,['class' =>'form-control', 'placeholder' =>'Ingrese una descripcion','required'])!!}
         </div>
 
 

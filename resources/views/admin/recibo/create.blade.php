@@ -30,11 +30,11 @@
         {!! Form::open(['route' => 'admin.recibo.store', 'method' => 'POST']) !!}
         <div class="form-group">
             {!! Form::label('cod','Codigo') !!}
-            {!! Form::text('cod',null,['class' =>'form-control', 'placeholder' =>'Ingrese un codigo','required'])!!}
+            {!! Form::number('cod',null,['class' =>'form-control', 'placeholder' =>'Ingrese un codigo','required'])!!}
         </div>
         <div class="form-group">
             {!! Form::label('fac','N° Factura') !!}
-            {!! Form::text('fac',null,['class' =>'form-control', 'placeholder' =>'Ingrese un numero de factura','required'])!!}
+            {!! Form::number('fac',null,['class' =>'form-control', 'placeholder' =>'Ingrese un numero de factura','required'])!!}
         </div>
         <div class="form-group">
             {!! Form::label('val','Valor') !!}

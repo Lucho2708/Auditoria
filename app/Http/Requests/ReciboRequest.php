@@ -26,7 +26,7 @@ class ReciboRequest extends Request
         return [
             'cod'=>'required|min:1|max:10|unique:recibos',
             'fac'=>'required|min:1|max:10|unique:recibos',
-            'val'=>'required|min:1|max:10|regex:"/^\$[1-9]{1}([0-9]{0,2})([\,][0-9]{3})*([\.][0-9]{1,2})*$/"',
+            'val'=>'required|min:1|max:10|regex:/^[0-9]{1,3}([\\,][0-9]{3})*[\\.][0-9]{2}$/',
             'desc'=>'required|min:1|max:30'
     
         ];
