@@ -29,11 +29,11 @@
         {!! Form::open(['route' =>[ 'admin.recibo.update',$recibo], 'method' => 'PUT']) !!}
         <div>
             {!! Form::label('cod','Codigo') !!}
-            {!! Form::number('cod',$recibo->cod,['class' =>'form-control', 'placeholder' =>'Ingrese un codigo','required'])!!}
+            {!! Form::text('cod',$recibo->cod,['class' =>'form-control', 'placeholder' =>'Ingrese un codigo','required'])!!}
         </div>
         <div class="form-group">
             {!! Form::label('fac','N° Factura') !!}
-            {!! Form::number('fac',$recibo->fac,['class' =>'form-control', 'placeholder' =>'Ingrese un numero de factura','required'])!!}
+            {!! Form::text('fac',$recibo->fac,['class' =>'form-control', 'placeholder' =>'Ingrese un numero de factura','required'])!!}
         </div>
         <div class="form-group">
             {!! Form::label('val','Valor') !!}

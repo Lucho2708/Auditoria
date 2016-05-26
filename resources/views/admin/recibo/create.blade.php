@@ -30,7 +30,7 @@
         {!! Form::open(['route' => 'admin.recibo.store', 'method' => 'POST']) !!}
         <div class="form-group">
             {!! Form::label('cod','Codigo') !!}
-            {!! Form::number('cod',null,['class' =>'form-control', 'placeholder' =>'Ingrese un codigo','required'])!!}
+            {!! Form::text('cod',null,['class' =>'form-control', 'placeholder' =>'Ingrese un codigo','required'])!!}
         </div>
         <div class="form-group">
             {!! Form::label('fac','N° Factura') !!}

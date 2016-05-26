@@ -104,7 +104,7 @@ class EditUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\EditReciboRequest  $request, $id)
     {
         $user=User::find($id);
         $user->fill($request->all());
